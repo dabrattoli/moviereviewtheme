@@ -1,9 +1,8 @@
 <?php 
-	 add_action( 'wp_enqueue_scripts', 'moviereviewtheme_enqueue_styles' );
+add_action( 'wp_enqueue_scripts', 'moviereviewtheme_enqueue_styles' );
 	 function moviereviewtheme_enqueue_styles() { 
  		  wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' ); 
  		  } 
-
 add_action( 'init', 'create_movie_review_cpt' );
 
 function create_movie_review_cpt() {
@@ -57,6 +56,7 @@ function create_movie_review_cpt() {
             'public' => true,
             'menu_position' => 15,
             'supports' => array( 'title', 'editor', 'thumbnail' ),
+            'supports' => array( 'title', 'editor', 'comments', 'thumbnail', 'custom-fields' ),
             'taxonomies' => array( '' ),
             'menu_icon' => 'dashicons-format-video',
             'has_archive' => true
@@ -126,5 +126,7 @@ function add_movie_review_fields( $movie_review_id, $movie_review ) {
         }
     }
 }
+
+?>
 
 ?>
