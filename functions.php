@@ -56,7 +56,7 @@ function create_movie_review_cpt() {
             'public' => true,
             'menu_position' => 15,
             'supports' => array( 'title', 'editor', 'thumbnail' ),
-            'supports' => array( 'title', 'editor', 'comments', 'thumbnail', 'custom-fields' ),
+            'supports' => array( 'title', 'editor', 'thumbnail' ),
             'taxonomies' => array( '' ),
             'menu_icon' => 'dashicons-format-video',
             'has_archive' => true
