@@ -18,14 +18,13 @@
 get_header(); ?>
 
 <div class="wrap">
-	<?php if ( is_home() && ! is_front_page() ) : ?>
+<?php if ( have_posts() ) : ?>
 		<header class="page-header">
-			<h1 class="page-title"><?php single_post_title(); ?></h1>
-		</header>
-	<?php else : ?>
-	<header class="page-header">
-		<h2 class="page-title"><?php _e( 'Reviews', 'twentyseventeen' ); ?></h2>
-	</header>
+			<?php
+				the_archive_title( '<h1 class="page-title">', '</h1>' );
+				the_archive_description( '<div class="taxonomy-description">', '</div>' );
+			?>
+		</header><!-- .page-header -->
 	<?php endif; ?>
 
 	<div id="primary" class="content-area">

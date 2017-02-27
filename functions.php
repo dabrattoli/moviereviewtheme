@@ -152,7 +152,7 @@ function display_movie_review_meta_box( $movie_review ) {
         <tr>
         <td style="width: 150px">Review Score</td>
             <td>
-                <select style="width: 100px" name="movie_review_rating">
+                <select style="width: 100px" name="movie_score">
                 <?php
                 // Generate all items of drop-down list
                 for ( $rating = 5; $rating >= 1; $rating -- ) {
