@@ -103,9 +103,6 @@ function create_genres_taxonomy() {
   ));
 }
 
- ?>
-
-
 //This function declares and creates the metabox for the movie reviews custom post type 
 add_action( 'admin_init', 'declaration_movie_review_metabox' );
 function declaration_movie_review_metabox() {
@@ -177,8 +174,6 @@ function add_movie_review_fields( $movie_review_id, $movie_review ) {
         }
     }
 }
-
-?>
 
 ?>
 
