@@ -27,9 +27,12 @@
                 <div class="two-column-right">
                  <?php
                 $term_list = wp_get_post_terms($post->ID, 'genres', array("fields" => "all"));
+                echo '<div class="left"><strong>Genre:</strong></div>';
+                echo '<div class="right">';
                 foreach($term_list as $term_single) {
-                echo '<div class="left"><strong>Genre:</strong></div><div class="right"> <a href="/genre/'.$term_single->slug.'">'.$term_single->name.'</a></div>'; //do something here
+                 echo '<a href="/genre/'.$term_single->slug.'">'.$term_single->name.'</a>, '; //do something here
                 }
+                echo '</div>';    
                 ?>    
                 <?php
                 if( esc_html( get_post_meta( get_the_ID(), 'movie_director', true ) ) != '' ){
@@ -82,11 +85,14 @@
                 <?php
                 //end of if
                 }else{ 
-                
+              
                 $term_list = wp_get_post_terms($post->ID, 'genres', array("fields" => "all"));
+                echo '<div class="left"><strong>Genre:</strong></div>';
+                echo '<div class="right">';
                 foreach($term_list as $term_single) {
-                echo '<div class="left"><strong>Genre:</strong></div><div class="right"> <a href="/genre/'.$term_single->slug.'">'.$term_single->name.'</a></div>'; //do something here
-                }    
+                 echo '<a href="/genre/'.$term_single->slug.'">'.$term_single->name.'</a>, '; //do something here
+                }
+                echo '</div>';    
                     
                    if( esc_html( get_post_meta( get_the_ID(), 'movie_director', true ) ) != '' ){
                 ?>
