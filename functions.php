@@ -117,8 +117,9 @@ function display_movie_review_meta_box( $movie_review ) {
     // Retrieve current name of the Director and Movie Rating based on review ID
     $movie_director = esc_html( get_post_meta( $movie_review->ID, 'movie_director', true ) );
     $movie_run_time = esc_html( get_post_meta( $movie_review->ID, 'movie_review_run_time', true ) );
-    $movie_review_year = esc_html( get_post_meta( $movie_review->ID, 'movie_review_year', true ) );
+    $movie_review_year = esc_html( get_post_meta( $movie_review->ID, 'year', true ) );
     $movie_rating = intval( get_post_meta( $movie_review->ID, 'movie_rating', true ) );
+    $movie_score = intval( get_post_meta( $movie_review->ID, 'movie_score', true ) );
     ?>
     <table>
         <tr>
@@ -135,17 +136,31 @@ function display_movie_review_meta_box( $movie_review ) {
         <td><input type="text" size="15" name="movie_review_year" value="<?php echo $movie_review_year; ?>" /></td>
         </tr>
         <tr>
-            <td style="width: 150px">Movie Rating</td>
+        <td style="width: 150px">Movie Rating</td>
+        <td>
+                <select style="width: 100px" name="movie_review_rating">
+                <?php
+                // Generate all items of drop-down list
+                for ( $i = 0; $i <= 3; $i ++) {
+                    $movieratingsarray = array("G","PG","PG-13","R");
+                ?>
+                <option value="<?php echo $movieratingsarray[$i]; ?>" <?php echo selected( $movieratingsarray[$i], $movie_rating ); ?>>
+                 <?php echo $movieratingsarray[$i]; ?><?php } ?>
+                </select>
+         </td>
+        </tr>
+        <tr>
+        <td style="width: 150px">Review Score</td>
             <td>
                 <select style="width: 100px" name="movie_review_rating">
                 <?php
                 // Generate all items of drop-down list
                 for ( $rating = 5; $rating >= 1; $rating -- ) {
                 ?>
-                    <option value="<?php echo $rating; ?>" <?php echo selected( $rating, $movie_rating ); ?>>
+                    <option value="<?php echo $rating; ?>" <?php echo selected( $rating, $movie_score ); ?>>
                     <?php echo $rating; ?> stars <?php } ?>
                 </select>
-            </td>
+         </td>
         </tr>
     </table>
     <?php
@@ -164,13 +179,15 @@ function add_movie_review_fields( $movie_review_id, $movie_review ) {
        if ( isset( $_POST['movie_review_run_time'] ) && $_POST['movie_review_run_time'] != '' ) {
             update_post_meta( $movie_review_id, 'movie_review_run_time', $_POST['movie_review_run_time'] );
         }    
-          if ( isset( $_POST['movie_review_year'] ) && $_POST['movie_review_year'] != '' ) {
+        if ( isset( $_POST['movie_review_year'] ) && $_POST['movie_review_year'] != '' ) {
             update_post_meta( $movie_review_id, 'year', $_POST['movie_review_year'] );
         }
-        
-          
+       
         if ( isset( $_POST['movie_review_rating'] ) && $_POST['movie_review_rating'] != '' ) {
             update_post_meta( $movie_review_id, 'movie_rating', $_POST['movie_review_rating'] );
+        }
+        if ( isset( $_POST['movie_score'] ) && $_POST['movie_score'] != '' ) {
+            update_post_meta( $movie_review_id, 'movie_score', $_POST['movie_score'] );
         }
     }
 }
