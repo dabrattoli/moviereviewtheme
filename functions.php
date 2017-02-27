@@ -103,9 +103,6 @@ function create_genres_taxonomy() {
   ));
 }
 
- ?>
-
-
 //This function declares and creates the metabox for the movie reviews custom post type 
 add_action( 'admin_init', 'declaration_movie_review_metabox' );
 function declaration_movie_review_metabox() {
@@ -119,6 +116,7 @@ function declaration_movie_review_metabox() {
 function display_movie_review_meta_box( $movie_review ) {
     // Retrieve current name of the Director and Movie Rating based on review ID
     $movie_director = esc_html( get_post_meta( $movie_review->ID, 'movie_director', true ) );
+    $movie_run_time = esc_html( get_post_meta( $movie_review->ID, 'movie_review_run_time', true ) );
     $movie_review_year = esc_html( get_post_meta( $movie_review->ID, 'movie_review_year', true ) );
     $movie_rating = intval( get_post_meta( $movie_review->ID, 'movie_rating', true ) );
     ?>
@@ -126,6 +124,10 @@ function display_movie_review_meta_box( $movie_review ) {
         <tr>
             <td style="width: 100%">Movie Director</td>
             <td><input type="text" size="80" name="movie_review_director_name" value="<?php echo $movie_director; ?>" /></td>
+        </tr>
+          <tr>
+            <td style="width: 100%">Run Time</td>
+            <td><input type="text" size="20" name="movie_review_run_time" value="<?php echo $movie_run_time; ?>" /></td>
         </tr>
         <tr>
      
@@ -158,6 +160,10 @@ function add_movie_review_fields( $movie_review_id, $movie_review ) {
         if ( isset( $_POST['movie_review_director_name'] ) && $_POST['movie_review_director_name'] != '' ) {
             update_post_meta( $movie_review_id, 'movie_director', $_POST['movie_review_director_name'] );
         }
+        
+       if ( isset( $_POST['movie_review_run_time'] ) && $_POST['movie_review_run_time'] != '' ) {
+            update_post_meta( $movie_review_id, 'movie_review_run_time', $_POST['movie_review_run_time'] );
+        }    
           if ( isset( $_POST['movie_review_year'] ) && $_POST['movie_review_year'] != '' ) {
             update_post_meta( $movie_review_id, 'year', $_POST['movie_review_year'] );
         }
@@ -168,8 +174,6 @@ function add_movie_review_fields( $movie_review_id, $movie_review ) {
         }
     }
 }
-
-?>
 
 ?>
 
