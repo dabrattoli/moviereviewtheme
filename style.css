@@ -11,3 +11,17 @@
  Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
  Text Domain:  movie-review-theme
 */
+.left{
+    float: left;
+    width: 20%;
+    padding-right: 0;
+    padding-left: 0.9375rem;
+    margin: 0;
+}
+.right{
+    float: left;
+    width: 70%;
+    padding-right: 0.9375rem;
+    padding-left: 0;
+    margin: 0;
+}
