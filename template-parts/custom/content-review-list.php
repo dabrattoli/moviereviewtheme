@@ -26,13 +26,15 @@
                 </div>
                 <div class="two-column-right">
                  <?php
-                $term_list = wp_get_post_terms($post->ID, 'genres', array("fields" => "all"));
+                    $term_list = wp_get_post_categories( $post_id );
+               if( count($term_list) != '' || count($term_list) != 0  ){
                 echo '<div class="left"><strong>Genre:</strong></div>';
                 echo '<div class="right">';
                 foreach($term_list as $term_single) {
                  echo '<a href="/genre/'.$term_single->slug.'">'.$term_single->name.'</a>, '; //do something here
                 }
-                echo '</div>';    
+                echo '</div>'; 
+                 }   
                 ?>    
                 <?php
                 if( esc_html( get_post_meta( get_the_ID(), 'movie_director', true ) ) != '' ){
@@ -86,13 +88,15 @@
                 //end of if
                 }else{ 
               
-                $term_list = wp_get_post_terms($post->ID, 'genres', array("fields" => "all"));
+              $term_list = wp_get_post_categories( $post_id );
+               if( count($term_list) != '' || count($term_list) != 0  ){
                 echo '<div class="left"><strong>Genre:</strong></div>';
                 echo '<div class="right">';
                 foreach($term_list as $term_single) {
                  echo '<a href="/genre/'.$term_single->slug.'">'.$term_single->name.'</a>, '; //do something here
                 }
-                echo '</div>';    
+                echo '</div>'; 
+                 }    
                     
                    if( esc_html( get_post_meta( get_the_ID(), 'movie_director', true ) ) != '' ){
                 ?>
