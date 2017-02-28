@@ -11,3 +11,57 @@
  Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
  Text Domain:  movie-review-theme
 */
+.wrap{
+    padding-left: 0;
+    padding-right: 0;
+        
+}
+.two-column-left{
+  float: left;
+    width: 40%;
+    padding-right: 0;
+    padding-left: 0;
+    margin: 0;  
+}
+.two-column-right{
+    float: left;
+    width: 60%;
+    padding-right: 0;
+    padding-left: 0;
+    margin: 0;
+}
+.left{
+    float: left;
+    width: 20%;
+    padding-right: 0;
+    padding-left: 0;
+    margin: 0;
+}
+.right{
+    float: left;
+    width: 70%;
+    padding-right: 0;
+    padding-left: 0.5rem;
+    margin: 0;
+}
+
+div.entry-content{
+    float: left;
+    padding-top: 2rem;
+}
+hr {
+    margin: -80px auto 40px;
+    height: 25px;
+    padding: 1px 0;
+    border: 0;
+    height: 1px;
+    width: 95%;
+   
+}
+article{
+    float: left;
+     box-shadow: 0 15px 15px -15px #dcdcdc;
+}
+article.movie-review-listing{
+    padding-top: 1rem;
+}
