@@ -36,53 +36,7 @@
                 echo '</div>'; 
                  }   
                 ?>    
-                <?php
-                if( esc_html( get_post_meta( get_the_ID(), 'movie_director', true ) ) != '' ){
-                ?>
-                <div class="left">
-                <strong>Director: </strong>
-                </div>
-                <div class="right">
-                <?php echo esc_html( get_post_meta( get_the_ID(), 'movie_director', true ) ); ?>
-                </div>
-                <?php
-                }
-                ?>
-                <?php
-                if( esc_html( get_post_meta( get_the_ID(), 'year', true ) ) != '' ){
-                ?>
-                <div class="left">
-                <strong>Year: </strong>
-                </div>
-                <div class="right">
-                <?php echo esc_html( get_post_meta( get_the_ID(), 'year', true ) ); ?>
-                </div>
-                <?php
-                }
-                ?>
-                <!-- Display yellow stars based on rating -->
-                <div class="left">
-                <strong>Rating: </strong>
-                </div>
-                <div class="right">
-                 <?php echo esc_html( get_post_meta( get_the_ID(), 'movie_rating', true ) ); ?>
-                </div>
-                <div class="left">
-                <strong>Score: </strong>
-                </div>
-                <div class="right">
-                <?php
-                $nb_stars = intval( get_post_meta( get_the_ID(), 'movie_score', true ) );
-                for ( $star_counter = 1; $star_counter <= 5; $star_counter++ ) {
-                    if ( $star_counter <= $nb_stars ) {
-                        
-                        echo '<img src="' .get_stylesheet_directory_uri().'/images/star.png" />';
-                    } else {
-                        echo '<img src="' .get_stylesheet_directory_uri().'/images/grey.png" />';
-                    }
-                }
-                ?>
-                </div>
+             
                </div>
                 <?php
                 //end of if
@@ -97,53 +51,9 @@
                 }
                 echo '</div>'; 
                  }    
-                    
-                   if( esc_html( get_post_meta( get_the_ID(), 'movie_director', true ) ) != '' ){
+
                 ?>
-                <div class="left">
-                <strong>Director: </strong>
-                </div>
-                <div class="right">
-                <?php echo esc_html( get_post_meta( get_the_ID(), 'movie_director', true ) ); ?>
-                </div>
-                <?php
-                }
-                ?>
-                <?php
-                if( esc_html( get_post_meta( get_the_ID(), 'year', true ) ) != '' ){
-                ?>
-                <div class="left">
-                <strong>Year: </strong>
-                </div>
-                <div class="right">
-                <?php echo esc_html( get_post_meta( get_the_ID(), 'year', true ) ); ?>
-                </div>
-                <?php
-                }
-                ?>
-                <!-- Display yellow stars based on rating -->
-                <div class="left">
-                <strong>Rating: </strong>
-                </div>
-                <div class="right">
-                 <?php echo esc_html( get_post_meta( get_the_ID(), 'movie_rating', true ) ); ?>
-                </div>
-                <div class="left">
-                <strong>Review Score: </strong>
-                </div>
-                <div class="right">
-                <?php
-                $nb_stars = intval( get_post_meta( get_the_ID(), 'movie_score', true ) );
-                for ( $star_counter = 1; $star_counter <= 5; $star_counter++ ) {
-                    if ( $star_counter <= $nb_stars ) {
-                        
-                        echo '<img src="' .get_stylesheet_directory_uri().'/images/star.png" />';
-                    } else {
-                        echo '<img src="' .get_stylesheet_directory_uri().'/images/grey.png" />';
-                    }
-                }
-                ?>
-                </div>
+              
                 
                 <?php    
                 }
